@@ -1,15 +1,12 @@
-// const studentModel = require("../models/studentModel");
-// const mongoose = require('mongoose');
-const express = require('express');
+const express = require("express");
+const studentRouter = require("./student");
 const router = express.Router();
 
-const {getAllStudentData, getStudentbyRollNo, insertStudentData, updateStudentDataById, deleteStudentDatabyId} = require('../controller/index');
+router.use("/", studentRouter);
 
-router.get('/', getAllStudentData);
-router.get('/:roll', getStudentbyRollNo);
-router.post("/", insertStudentData);
-router.patch("/:id", updateStudentDataById);
-router.delete("/:id", deleteStudentDatabyId);
+module.exports = studentRouter;
 
 
-module.exports = router;
+// router.use("/student", studentRouter);
+
+// module.exports = router;
