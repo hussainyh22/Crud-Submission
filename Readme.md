@@ -14,10 +14,10 @@ Get Request - All Users:
 http://localhost:8001/student/
 
 Get Request - One Student:
-http://localhost:8001/student/<Roll No:>
+http://localhost:8001/student/(Roll No:)
 
 Delete Request - 
-http://localhost:8001/student/ <Mongodb  generated id>
+http://localhost:8001/student/(Mongodb  generated id)
 
 Put Request - 
-http://localhost:8001/student/ <Mongodb  generated id>
+http://localhost:8001/student/(Mongodb  generated id)
