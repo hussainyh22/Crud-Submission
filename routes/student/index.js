@@ -1,67 +1,50 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-
-const getAllStudentData = require("./getAllStudentData");
-const getStudentbyRollNo = require("./getStudentbyRollNo");
-const insertStudentData = require("./insertStudentData");
-const updateStudentDataById = require("./updateStudentDataById");
-const deleteStudentDatabyId = require("./deleteStudentDatabyId");
-
-
-// const {getStudentbyRollNo, insertStudentData, updateStudentDataById, deleteStudentDatabyId} = require('../controller/index');
-// router.use('/getAllStudentData', getAllStudentData);
+const getAllStudentData = require("./getAllStudentData.js");
+const getStudentByRollNo = require("./getStudentByRollNo.js");
+// const getStudentDataById = require("./getStudentDataById.js");
+const insertStudentData = require("./insertStudentData.js");
+const updateStudentDataById = require("./updateStudentDataById.js");
+const deleteStudentDataById = require("./deleteStudentDataById.js");
 
 
-router.get('/', getAllStudentData);
-router.get('/:roll', getStudentbyRollNo);
-router.post("/", insertStudentData);
-router.put("/:id", updateStudentDataById);
-router.delete("/:id", deleteStudentDatabyId);
+router.use('/all', getAllStudentData);
+router.use('/get', getStudentByRollNo);  
+router.use('/add', insertStudentData);
+router.use('/update', updateStudentDataById);
+router.use('/delete', deleteStudentDataById);
 
-
-
-
-// router.use('/', getAllStudentData);
-// router.use("/", insertStudentData);
-// router.use('/:roll', getStudentbyRollNo);
-// router.use("/:id", updateStudentDataById);
-// router.use("/:id", deleteStudentDatabyId);
-
-
+// Export the router
 module.exports = router;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// const express = require("express");
-// const router = express.Router();
-// const { 
+// module.exports = { 
 //     getAllStudentData, 
-//     getStudentbyRollNo, 
+//     getStudentByRollNo, 
+//     // getStudentDataById, 
 //     insertStudentData, 
 //     updateStudentDataById, 
-//     deleteStudentDatabyId 
-// } = require("../../controller/student");
+//     deleteStudentDataById 
+// }
 
-// router.get("/test", (req, res) => {
-//     res.send("Student route is working!");
-// });
 
-// router.get("/", getAllStudentData);
-// router.get("/:roll", getStudentbyRollNo);
+
+
+
+
+// const studentModel = require("../models/studentModel");
+// const mongoose = require('mongoose');
+// const express = require('express');
+// const router = express.Router();
+
+// const {getAllStudentData, getStudentbyRollNo, insertStudentData, updateStudentDataById, deleteStudentDatabyId} = require('../controller/index');
+
+// router.get('/', getAllStudentData);
+// router.get('/:roll', getStudentbyRollNo);
 // router.post("/", insertStudentData);
-// router.put("/:id", updateStudentDataById);
+// router.patch("/:id", updateStudentDataById);
 // router.delete("/:id", deleteStudentDatabyId);
+
 
 // module.exports = router;

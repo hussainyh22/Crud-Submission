@@ -1,11 +1,14 @@
 const express = require('express');
 const app =  express();
 const { connect } = require('http2');
-const studentRouter = require("./routes/index");
+const studentRouter = require("./routes/student/");
+// const mongoose = require('mongoose');
 const {connectMongoose} = require("./connection");
 const PORT = 8001;
 
 app.use(express.urlencoded({extended:false}));
+
+
 app.use("/student", studentRouter);
 
 connectMongoose("mongodb://localhost:27017/studentData")

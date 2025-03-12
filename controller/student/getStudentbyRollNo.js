@@ -1,9 +1,10 @@
 const studentModel = require("../../models/index");
 
-async function getStudentbyRollNo(req, res) {
+async function getStudentByRollNo(req, res) {
   //get ID
   const roll = req.params.roll;
   //search in Db
+ try{
   const target = await studentModel.findOne({ 'rollNo': roll });
 
   if (!target) {
@@ -17,10 +18,11 @@ async function getStudentbyRollNo(req, res) {
     .send(
       `${target.rollNo}: ${target.fname} - ${target.lname}: ${target.cgpa}`
     );
+}catch(err){
+  console.log(`finding student by roll number  - ${err}`);
+  return res.status(500).send('Error Fetching Data');
+}
 }
 
 
-
-module.exports = {
-    getStudentbyRollNo
-};
+module.exports = getStudentByRollNo;

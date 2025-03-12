@@ -11,10 +11,11 @@ async function getAllStudentData(req, res)
         ${studentData
           .map(
             (s) =>
-              `<li>${s.rollNo} - ${s.fname} - ${s.cgpa}</li>\n`).join("")}
+              `<li>${s.rollNo} - ${s.fname} - ${s.cgpa} - ${s.id}</li>\n`).join("")}
     </ul>`;
 
     return res.status(200).send(html);
+    // return res.send(html);
   // return html;
 } catch(err){
   console.log(`Error Fetching Data - ${err}`);
@@ -22,6 +23,4 @@ async function getAllStudentData(req, res)
 }
 }
 
-module.exports = {
-    getAllStudentData,
-}
+module.exports = getAllStudentData;

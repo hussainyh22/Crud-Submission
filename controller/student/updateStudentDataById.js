@@ -17,6 +17,4 @@ async function updateStudentDataById(req, res) {
   }
 }
 
-module.exports = {
-    updateStudentDataById
-};
+module.exports = updateStudentDataById;
